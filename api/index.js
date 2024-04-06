@@ -1,5 +1,4 @@
 const express = require("express");
-const fs = require("fs");
 const cors = require("cors");
 
 const app = express();
@@ -11,12 +10,12 @@ app.use(cors()); // Enable CORS
 // Route to get pens with specific colors
 const pens = require("../pens.json");
 
-app.get("/pens", (req, res) => {
+app.get("/api/pens", (req, res) => {
   res.json(pens);
 });
 
 // Route to get pens by color
-app.get("/pens/color/:color", (req, res) => {
+app.get("/api/pens/color/:color", (req, res) => {
   const color = req.params.color.toLowerCase();
 
   const filteredPens = pens.filter((pen) => pen.color.toLowerCase() === color);
@@ -25,7 +24,7 @@ app.get("/pens/color/:color", (req, res) => {
 });
 
 // Route to get a specific pen by ID
-app.get("/pens/:id", (req, res) => {
+app.get("/api/pens/:id", (req, res) => {
   const id = parseInt(req.params.id);
 
   const foundPen = pens.find((pen) => pen.id === id);
