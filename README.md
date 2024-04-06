@@ -29,6 +29,16 @@ Example: https://pens-api.vercel.app/api/pens/1
 
 Returns a single pen by ID.
 
+### Get pens by color
+
+```
+GET /api/pens/color/{color}
+```
+
+Example: https://pens-api.vercel.app/api/pens/color/red
+
+Returns pens by given color.
+
 
 ### Usage
 
